@@ -54,6 +54,8 @@ Este Dockerfile utiliza la imagen oficial de PHP 8.3 con Apache como base, lo qu
 4.  **Darle permisos dentro del contenedor**: se otorgan permisos de ejecución al script **startup.sh**.
     
 5.  **Usar el script como punto de entrada**: se configura el script **startup.sh** como el punto de entrada para el contenedor.
+
+Crea la imagen con **docker build -t mi-aplicacion-php .**, despliega la imagen como contenedor con **docker run -p 8080:8080 --name mi-contenedor mi-aplicacion-php**
     
 
 Despliegue en Kubernetes
