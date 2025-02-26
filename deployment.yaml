@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mi-aplicacion-php
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mi-aplicacion-php
+  template:
+    metadata:
+      labels:
+        app: mi-aplicacion-php
+    spec:
+      containers:
+        - name: mi-contenedor
+          image: mi-aplicacion-php
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mi-servicio-php
+spec:
+  selector:
+    app: mi-aplicacion-php
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+  type: NodePort
